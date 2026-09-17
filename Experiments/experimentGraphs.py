@@ -4,7 +4,7 @@ import numpy as np
 from more_itertools import chunked
 import keras
 import matplotlib.pyplot as plt
-from graph import Graph
+from Experiments.graph import Graph
 
 
 
@@ -24,7 +24,7 @@ class Experiment():
         file = open(file_name, "rb")
         loaded_data = pickle.load(file)
         file.close()
-        return loaded_data
+        return loaded_data[:30]
     
     def get_top_models(self, fname, num_models, type):
         f = open(fname, "r")
@@ -178,7 +178,7 @@ class Experiment():
 
     def make_graphs(self, cutoffs, count=0):
         x = [i for i in range(self.num_batches)]
-        #print(len(x))
+        print(len(x))
         a1, p1, r1, f1 = self.generate_metric_lsts(True, 0.5, 0, self.weights)
         a2, p2, r2, f2 = self.generate_metric_lsts(False, 0.5, 0, self.weights)
         a3, _, _, _ = self.generate_metric_lsts(True, cutoffs[0], 0,self.weights)
