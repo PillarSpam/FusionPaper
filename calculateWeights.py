@@ -42,7 +42,7 @@ def generate_batches(X, y, batch_size):
 
 def update_weights(prediction_matrix, weights, true_labels):
     total = 11
-    for i in range(len(prediction_matrix[0]))
+    for i in range(len(prediction_matrix[0])):
         incorrect = 0
         label = true_labels[i]
         pred_lst = []
